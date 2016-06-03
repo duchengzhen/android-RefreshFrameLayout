@@ -26,3 +26,6 @@ local.properties
 
 # Mac os
 .DS_Store
+gradle/
+gradlew
+gradlew.bat

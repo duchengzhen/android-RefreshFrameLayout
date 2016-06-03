@@ -1,70 +1,75 @@
-###### Welcome to follow me on GitHub or Twitter
+###### 欢迎关注我
 
 GitHub: https://github.com/liaohuqiu
 
-Twitter: https://twitter.com/liaohuqiu
+微博: http://weibo.com/liaohuqiu
+
+知乎: http://www.zhihu.com/people/liao-hu-qiu
 
 ---
 
-[![Build Status](https://travis-ci.org/liaohuqiu/android-Ultra-Pull-To-Refresh.svg?branch=master)](https://travis-ci.org/liaohuqiu/android-Ultra-Pull-To-Refresh)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Ultra%20Pull%20To%20Refresh-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/1180)
-
-#### [中文版文档](https://github.com/liaohuqiu/android-Ultra-Pull-To-Refresh/blob/master/README-cn.md)
-
-Wanna auto-load-more? This will be what you want: https://github.com/liaohuqiu/android-cube-app
-
 # Ultra Pull To Refresh
 
-It's a replacement for the deprecated pull to refresh solution. It can contain any view you want.
+这是现在已经停止维护的下拉刷新项目的替代方案。继承于ViewGroup可以包含任何View。功能比SwipeRefreshLayout强大。
 
-It's easy to use and more powerful than SwipeRefreshLayout.
+使用起来非常简单。良好的设计，如果你想定制自己的UI样式，非常简单，就像给ListView加一个Header View那么简单。
 
-It's well designed, you can customize the UI effect you want as easy as adding a headview to ListView.
+支持 `API LEVEL >= 8`。
 
-Support `API LEVEL >= 8`, all snapshots are taken from Genymotion, 2.3.7.
+[APK下载](https://raw.githubusercontent.com/liaohuqiu/android-Ultra-Pull-To-Refresh/master/ptr-demo.apk)
 
-[Download APK](https://raw.githubusercontent.com/liaohuqiu/android-Ultra-Pull-To-Refresh/master/ptr-demo.apk)
+#### 下拉刷新 + 加载更多？
 
-* StoreHouse Style first! Thanks to [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl).
+本类库是单纯的下拉刷新。如果你需要用到`加载更多`，看这个项目: https://github.com/liaohuqiu/android-cube-app
+
+#### 使用eclipse的同学请注意, Intellij IDEA / Android Studio 请忽略
+
+**demo可以直接在eclipse中运行, 编译demo项目的同学看这里:  http://www.liaohuqiu.net/cn/posts/compile-ultra-ptr-in-eclipse/**
+
+* 先上两张StoreHouse风格的截图! 感谢 [CBStoreHouseRefreshControl](https://github.com/coolbeet/CBStoreHouseRefreshControl).
     <div class='row'>
         <img src='http://srain-github.qiniudn.com/ultra-ptr/store-house-string-array.gif' width="300px" style='border: #f1f1f1 solid 1px'/>
         <img src='http://srain-github.qiniudn.com/ultra-ptr/store-house-string.gif' width="300px" style='border: #f1f1f1 solid 1px'/>
     </div>
 
-* Material Style, added @ 2014-12-09. **There is a beautiful shadow which looks terrible in gif snapshot. Please Check out the DEMO.**
+* 5.0 Material 风格 2014-12-09 新增。**阴影效果，gif图看起来有些失真，看demo吧！**
     <div class='row'>
         <img src='http://srain-github.qiniudn.com/ultra-ptr/material-style.gif' width="300px"/>
     </div>
 
-* **Supports all of the views**: 
-    ListView, GridView, ScrollView, FrameLayout, or Even a single TextView.
+* **支持所有的View**: 
+
+    ListView, GridView, ScrollView, FrameLayout, 甚至 TextView.
     <div><img src='http://srain-github.qiniudn.com/ultra-ptr/contains-all-of-views.gif' width="300px" style='border: #f1f1f1 solid 1px'/></div>
 
-* Supports all of the refresh types.
-    * pull to refresh
+* 支持各种下拉刷新交互.
+    * 下拉刷新(iOS风格)
         <div><img src='http://srain-github.qiniudn.com/ultra-ptr/pull-to-refresh.gif' width="300px" style='border: #f1f1f1 solid 1px'/></div>
-    * release to refresh
+
+    * 释放刷新(经典风格)
         <div><img src='http://srain-github.qiniudn.com/ultra-ptr/release-to-refresh.gif' width="300px" style='border: #f1f1f1 solid 1px'/></div>
 
-    * keep header when refresh 
+    * 刷新时，头部保持(新浪微博)
 
         <img src='http://srain-github.qiniudn.com/ultra-ptr/keep-header.gif' width="300px"/>
 
-    * hide header when refresh
+    * 刷新时，头部不保持(微信朋友圈)
 
         <img src='http://srain-github.qiniudn.com/ultra-ptr/hide-header.gif' width="300px" sytle='border: #f1f1f1 solid 1px'/>
 
-    * auto refresh
+    * 自动刷新，进入界面时自动刷新
 
         <img src='http://srain-github.qiniudn.com/ultra-ptr/auto-refresh.gif' width="300px" sytle='border: #f1f1f1 solid 1px'/></div>
 
-# Usage
+# 使用方式
 
-#### Maven Central
+#### 中央库依赖
 
-This project has been pushed to Maven Central, both in `aar` and `apklib`.
+项目已经发布到了Maven中央库，包括`aar`和`apklib`两种格式。在Maven或者Gradle下可如下直接引入:
 
-The latest version: `1.0.11`, has been published to: https://oss.sonatype.org/content/repositories/snapshots, in gradle:
+最新版版本号: `1.0.11`, 发布到了: https://oss.sonatype.org/content/repositories/snapshots
+
+在gradle中:
 
 ```
 maven {
@@ -72,13 +77,27 @@ maven {
 }
 ```
 
-The stable version: `1.0.11`, https://oss.sonatype.org/content/repositories/releases, in gradle:
+稳定版: `1.0.11`, https://oss.sonatype.org/content/repositories/releases, in gradle:
 
 ```
 mavenCentral()
 ```
 
-pom.xml, latest version:
+`pom.xml` 文件中
+
+最新版:
+
+```xml
+<dependency>
+    <groupId>in.srain.cube</groupId>
+    <artifactId>ultra-ptr</artifactId>
+    <type>aar</type>
+    <!-- or apklib format, if you want -->
+    <!-- <type>apklib</type> -->
+    <version>1.0.11</version>
+</dependency>
+
+稳定版
 
 ```xml
 <dependency>
@@ -91,60 +110,47 @@ pom.xml, latest version:
 </dependency>
 ```
 
-pom.xml, stable version:
-
-```xml
-<dependency>
-    <groupId>in.srain.cube</groupId>
-    <artifactId>ultra-ptr</artifactId>
-    <type>aar</type>
-    <!-- or apklib format, if you want -->
-    <!-- <type>apklib</type> -->
-    <version>1.0.11</version>
-</dependency>
-```
-
-gradle, latest version:
+gradle / Android Studio, 最新版
 
 ```
 compile 'in.srain.cube:ultra-ptr:1.0.11'
 ```
 
-gradle, stable version:
+gradle / Android Studio, 稳定版
 
 ```
 compile 'in.srain.cube:ultra-ptr:1.0.11'
 ```
 
-#### Config
+#### 配置
 
-There are 6 properties:
+有6个参数可配置:
 
-* Resistence
+* 阻尼系数
 
-    This is the resistence while you are moving the frame, default is: `1.7f`.
+    默认: `1.7f`，越大，感觉下拉时越吃力。
 
-* Ratio of the Height of the Header to Refresh
+* 触发刷新时移动的位置比例
 
-    The ratio of the height of the header to trigger refresh, default is: `1.2f`.
+    默认，`1.2f`，移动达到头部高度1.2倍时可触发刷新操作。
 
-* Duration to Close
+* 回弹延时
 
-    The duration for moving from the position you relase the view to the height of header, default is `200ms`.
+    默认 `200ms`，回弹到刷新高度所用时间
 
-* Duration to Close Header
+* 头部回弹时间
 
-    The default value is `1000ms`
+    默认`1000ms`
 
-* Keep Header while Refreshing
+* 刷新是保持头部
 
-    The default value is `true`.
+    默认值 `true`.
 
-* Pull to Refresh / Release to Refresh
+* 下拉刷新 / 释放刷新
 
-    The default value is Release to Refresh.
+    默认为释放刷新
 
-##### Config in xml
+##### xml中配置示例
 
 ```xml
 <in.srain.cube.views.ptr.PtrFrameLayout
@@ -177,7 +183,7 @@ There are 6 properties:
 </in.srain.cube.views.ptr.PtrFrameLayout>
 ```
 
-### Or config in java code
+### 也可以在java代码中配置
 
 ```java
 // the following are default settings
@@ -191,15 +197,15 @@ mPtrFrame.setPullToRefresh(false);
 mPtrFrame.setKeepHeaderWhenRefresh(true);
 ```
 
-### Other Config
+### 其他配置
 
-*  `setPinContent`. Pin the content, only the `HeaderView` will be moved. 
+*  刷新时，保持内容不动，仅头部下移, `setPinContent()`
 
-    This's the the performance of material style in support package v19.
+    `Material` 风格时，效果不错，其他风格的头部，效果不好。issue #29
 
-## StoreHouse Style
+## StoreHouse 风格
 
-* Config using string:
+* 使用字符串, 支持A-Z, 0-7 以及 `-` `.`
 
 ```java
 // header
@@ -213,13 +219,13 @@ header.setPadding(0, LocalDisplay.dp2px(15), 0, 0);
 header.initWithString('Alibaba');
 ```
 
-* Config using string array from xml:
+* 使用资源文件中的路径信息
 
 ```java
 header.initWithStringArray(R.array.storehouse);
 ```
 
-And in `res/values/arrays.xml`:
+资源文件 `res/values/arrays.xml` 内容如下:
 
 ```xml
 <resources>
@@ -242,22 +248,24 @@ And in `res/values/arrays.xml`:
 </resources>
 ```
 
-# Process Refresh
+# 处理刷新
 
-There is a `PtrHandler`, by which you can refresh the data.
+通过`PtrHandler`，可以检查确定是否可以下来刷新以及在合适的时间刷新数据。
+
+检查是否可以下拉刷新在`PtrDefaultHandler.checkContentCanBePulledDown`中有默认简单的实现，你可以根据实际情况完成这个逻辑。
 
 ```
 public interface PtrHandler {
 
     /**
-     * Check can do refresh or not. For example the content is empty or the first child is in view.
+     * 检查是否可以执行下来刷新，比如列表为空或者列表第一项在最上面时。
      * <p/>
      * {@link in.srain.cube.views.ptr.PtrDefaultHandler#checkContentCanBePulledDown}
      */
     public boolean checkCanDoRefresh(final PtrFrameLayout frame, final View content, final View header);
 
     /**
-     * When refresh begin
+     * 需要加载数据时触发
      *
      * @param frame
      */
@@ -265,7 +273,7 @@ public interface PtrHandler {
 }
 ```
 
-An example:
+例子:
 
 ```java
 ptrFrame.setPtrHandler(new PtrHandler() {
@@ -281,66 +289,32 @@ ptrFrame.setPtrHandler(new PtrHandler() {
 
     @Override
     public boolean checkCanDoRefresh(PtrFrameLayout frame, View content, View header) {
+        // 默认实现，根据实际情况做改动
         return PtrDefaultHandler.checkContentCanBePulledDown(frame, content, header);
     }
 });
 ```
 
+# 常见问题
 
-# Customize
+*  ViewPager滑动冲突: `disableWhenHorizontalMove()`
 
-You can add a `PtrUIHandler` to `PtrFrameLayout` to implement any UI effect you want.
+*  长按LongPressed, `setInterceptEventWhileWorking()`
 
-```java
-public interface PtrUIHandler {
 
-    /**
-     * When the content view has reached top and refresh has been completed, view will be reset.
-     *
-     * @param frame
-     */
-    public void onUIReset(PtrFrameLayout frame);
+# 联系方式和问题建议
 
-    /**
-     * prepare for loading
-     *
-     * @param frame
-     */
-    public void onUIRefreshPrepare(PtrFrameLayout frame);
+* 微博: http://weibo.com/liaohuqiu
+* QQ 群: 
 
-    /**
-     * perform refreshing UI
-     */
-    public void onUIRefreshBegin(PtrFrameLayout frame);
+    1. cube系列开源项目使用交流，问题解答: 271918140 (cube-sdk)
 
-    /**
-     * perform UI after refresh
-     */
-    public void onUIRefreshComplete(PtrFrameLayout frame);
+        加群前请先阅读群约定: https://github.com/liaohuqiu/qq-tribe-rule
 
-    public void onUIPositionChange(PtrFrameLayout frame, boolean isUnderTouch, byte status, int oldPosition, int currentPosition, float oldPercent, float currentPercent);
-}
-```
-
-# Q & A
-
-*  work with ViewPager: `disableWhenHorizontalMove()`
-
-*  work with LongPressed, `setInterceptEventWhileWorking()`
-
-# Contact & Help
-
-Please fell free to contact me if there is any problem when using the library.
+    2. 如果你会通过google解决问题，喜欢独立思考，喜欢和优秀却又温和的人成为朋友，欢迎加入我们在 Slack 上的群组: 我们在 Slack 上的群组: 
+    
+        http://join-add1bit.liaohuqiu.net/?channel=git-android-ultra-ptr
 
 * srain@php.net
 * twitter: https://twitter.com/liaohuqiu
-* weibo: http://weibo.com/liaohuqiu
 * blog: http://www.liaohuqiu.net
-
-    1. About how to use cube-sdk / Ultra Ptr: 271918140 (cube-sdk)
-
-        This the rule for our tribes, please read it before you request to join: https://github.com/liaohuqiu/qq-tribe-rule
-
-    2. For those who like thinking independently and are good at solving problem independently. Please join us, we are all here on Slack: 
-    
-        http://join-add1bit.liaohuqiu.net/
